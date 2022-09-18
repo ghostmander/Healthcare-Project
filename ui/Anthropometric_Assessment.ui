@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+      <class>MainWindow</class>
+      <widget class="QMainWindow" name="MainWindow">
+            <property name="geometry">
+                  <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>1159</width>
+                        <height>703</height>
+                  </rect>
+            </property>
+            <property name="windowTitle">
+                  <string>MainWindow</string>
+            </property>
+            <property name="styleSheet">
+                  <string notr="true">background-color: rgb(63, 118, 255);</string>
+            </property>
+            <widget class="QWidget" name="centralwidget">
+                  <layout class="QHBoxLayout" name="horizontalLayout">
+                        <property name="spacing">
+                              <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                              <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                              <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                              <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                              <number>0</number>
+                        </property>
+                        <item>
+                              <widget class="QFrame" name="frame">
+                                    <property name="minimumSize">
+                                          <size>
+                                                <width>80</width>
+                                                <height>0</height>
+                                          </size>
+                                    </property>
+                                    <property name="maximumSize">
+                                          <size>
+                                                <width>80</width>
+                                                <height>16777215</height>
+                                          </size>
+                                    </property>
+                                    <property name="styleSheet">
+                                          <string notr="true">background-color: rgb(90, 68, 215);
+border-top-left-radius:40px;
+border-bottom-left-radius:40px;</string>
+                                    </property>
+                                    <property name="frameShape">
+                                          <enum>QFrame::StyledPanel</enum>
+                                    </property>
+                                    <property name="frameShadow">
+                                          <enum>QFrame::Raised</enum>
+                                    </property>
+                                    <layout class="QVBoxLayout" name="verticalLayout">
+                                          <property name="spacing">
+                                                <number>0</number>
+                                          </property>
+                                          <property name="leftMargin">
+                                                <number>0</number>
+                                          </property>
+                                          <property name="rightMargin">
+                                                <number>0</number>
+                                          </property>
+                                          <item>
+                                                <widget class="QPushButton" name="pushButton">
+                                                      <property name="minimumSize">
+                                                            <size>
+                                                                  <width>0</width>
+                                                                  <height>50</height>
+                                                            </size>
+                                                      </property>
+                                                      <property name="styleSheet">
+                                                            <string notr="true">QPushButton{
+image: url(:/icons/menu.svg);
+padding-top:10px;
+padding-bottom:10px;
+}
+
+QPushButton:hover{
+background-color: rgb(65, 41, 191);
+border-left-top-radius:5px;
+border-left-bottom-radius:5px;
+}
+QPushButton:pressed{
+background-color: rgb(65, 41, 191);
+}</string>
+                                                      </property>
+                                                      <property name="text">
+                                                            <string/>
+                                                      </property>
+                                                </widget>
+                                          </item>
+                                          <item>
+                                                <widget class="QPushButton" name="pushButton_2">
+                                                      <property name="minimumSize">
+                                                            <size>
+                                                                  <width>0</width>
+                                                                  <height>50</height>
+                                                            </size>
+                                                      </property>
+                                                      <property name="styleSheet">
+                                                            <string notr="true">QPushButton{
+image: url(:/icons/account.svg);
+padding-top:10px;
+padding-bottom:10px;
+}
+QPushButton:hover{
+background-color: rgb(65, 41, 191);
+}
+QPushButton:pressed{
+background-color: rgb(65, 41, 191);
+}</string>
+                                                      </property>
+                                                      <property name="text">
+                                                            <string/>
+                                                      </property>
+                                                </widget>
+                                          </item>
+                                          <item>
+                                                <widget class="QPushButton" name="pushButton_3">
+                                                      <property name="minimumSize">
+                                                            <size>
+                                                                  <width>0</width>
+                                                                  <height>50</height>
+                                                            </size>
+                                                      </property>
+                                                      <property name="styleSheet">
+                                                            <string notr="true">QPushButton{
+	image: url(:/icons/form.svg);
+padding-top:10px;
+padding-bottom:10px;
+}
+QPushButton:hover{
+background-color: rgb(65, 41, 191);
+}
+QPushButton:pressed{
+background-color: rgb(65, 41, 191);
+}</string>
+                                                      </property>
+                                                      <property name="text">
+                                                            <string/>
+                                                      </property>
+                                                </widget>
+                                          </item>
+                                          <item>
+                                                <widget class="QPushButton" name="pushButton_4">
+                                                      <property name="minimumSize">
+                                                            <size>
+                                                                  <width>0</width>
+                                                                  <height>50</height>
+                                                            </size>
+                                                      </property>
+                                                      <property name="styleSheet">
+                                                            <string notr="true">QPushButton{
+image: url(:/icons/home.svg);
+padding-top:10px;
+padding-bottom:10px;
+}
+QPushButton:hover{
+background-color: rgb(65, 41, 191);
+}
+QPushButton:pressed{
+background-color: rgb(65, 41, 191);
+}</string>
+                                                      </property>
+                                                      <property name="text">
+                                                            <string/>
+                                                      </property>
+                                                </widget>
+                                          </item>
+                                          <item>
+                                                <widget class="QPushButton" name="pushButton_5">
+                                                      <property name="minimumSize">
+                                                            <size>
+                                                                  <width>0</width>
+                                                                  <height>50</height>
+                                                            </size>
+                                                      </property>
+                                                      <property name="styleSheet">
+                                                            <string notr="true">QPushButton{
+	image: url(:/icons/database.svg);
+padding-top:10px;
+padding-bottom:10px;
+}
+QPushButton:hover{
+background-color: rgb(65, 41, 191);
+}
+QPushButton:pressed{
+background-color: rgb(65, 41, 191);
+}</string>
+                                                      </property>
+                                                      <property name="text">
+                                                            <string/>
+                                                      </property>
+                                                </widget>
+                                          </item>
+                                    </layout>
+                              </widget>
+                        </item>
+                        <item>
+                              <widget class="QFrame" name="frame_2">
+                                    <property name="styleSheet">
+                                          <string notr="true">background:None;
+                                          </string>
+                                    </property>
+                                    <property name="frameShape">
+                                          <enum>QFrame::StyledPanel</enum>
+                                    </property>
+                                    <property name="frameShadow">
+                                          <enum>QFrame::Raised</enum>
+                                    </property>
+                                    <layout class="QVBoxLayout" name="verticalLayout_2">
+                                          <property name="spacing">
+                                                <number>0</number>
+                                          </property>
+                                          <property name="leftMargin">
+                                                <number>0</number>
+                                          </property>
+                                          <property name="topMargin">
+                                                <number>0</number>
+                                          </property>
+                                          <property name="rightMargin">
+                                                <number>0</number>
+                                          </property>
+                                          <property name="bottomMargin">
+                                                <number>0</number>
+                                          </property>
+                                          <item>
+                                                <widget class="QFrame" name="frame_4">
+                                                      <property name="maximumSize">
+                                                            <size>
+                                                                  <width>16777215</width>
+                                                                  <height>50</height>
+                                                            </size>
+                                                      </property>
+                                                      <property name="styleSheet">
+                                                            <string notr="true">background-color: rgb(221, 233, 255);</string>
+                                                      </property>
+                                                      <property name="frameShape">
+                                                            <enum>QFrame::StyledPanel</enum>
+                                                      </property>
+                                                      <property name="frameShadow">
+                                                            <enum>QFrame::Raised</enum>
+                                                      </property>
+                                                      <layout class="QHBoxLayout" name="horizontalLayout_2">
+                                                            <property name="spacing">
+                                                                  <number>6</number>
+                                                            </property>
+                                                            <property name="leftMargin">
+                                                                  <number>0</number>
+                                                            </property>
+                                                            <property name="topMargin">
+                                                                  <number>0</number>
+                                                            </property>
+                                                            <property name="rightMargin">
+                                                                  <number>0</number>
+                                                            </property>
+                                                            <property name="bottomMargin">
+                                                                  <number>0</number>
+                                                            </property>
+                                                            <item>
+                                                                  <widget class="QPushButton" name="pushButton_6">
+                                                                        <property name="minimumSize">
+                                                                              <size>
+                                                                                    <width>0</width>
+                                                                                    <height>50</height>
+                                                                              </size>
+                                                                        </property>
+                                                                        <property name="font">
+                                                                              <font>
+                                                                                    <family>Bahnschrift Condensed</family>
+                                                                                    <pointsize>15</pointsize>
+                                                                                    <bold>true</bold>
+                                                                              </font>
+                                                                        </property>
+                                                                        <property name="styleSheet">
+                                                                              <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(63, 117, 255, 255), stop:1 rgba(62, 129, 255, 255));
+color: rgb(255, 255, 255);
+border-top-left-radius:25px;
+border-top-right-radius:25px;</string>
+                                                                        </property>
+                                                                        <property name="text">
+                                                                              <string>Anthropometric Assessment</string>
+                                                                        </property>
+                                                                  </widget>
+                                                            </item>
+                                                            <item>
+                                                                  <widget class="QPushButton" name="pushButton_7">
+                                                                        <property name="minimumSize">
+                                                                              <size>
+                                                                                    <width>0</width>
+                                                                                    <height>50</height>
+                                                                              </size>
+                                                                        </property>
+                                                                        <property name="font">
+                                                                              <font>
+                                                                                    <family>Bahnschrift Condensed</family>
+                                                                                    <pointsize>15</pointsize>
+                                                                                    <bold>true</bold>
+                                                                              </font>
+                                                                        </property>
+                                                                        <property name="styleSheet">
+                                                                              <string notr="true">QPushButton{
+border-radius:10px;
+background-color: rgb(244, 249, 255);
+	color: rgb(85, 85, 87);
+}
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 138, 255, 255), stop:1 rgba(59, 158, 255, 255));
+	color: rgb(255, 255, 255);
+border-top-left-radius:25px;
+border-top-right-radius:25px;
+border-bottom-right-radius:0px;
+border-bottom-left-radius:0px;
+}
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(61, 138, 255, 255), stop:1 rgba(59, 158, 255, 255));
+	color: rgb(255, 255, 255);
+border-top-left-radius:25px;
+border-top-right-radius:25px;
+border-bottom-right-radius:0px;
+border-bottom-left-radius:0px;
+}</string>
+                                                                        </property>
+                                                                        <property name="text">
+                                                                              <string>Biochemical Assessment</string>
+                                                                        </property>
+                                                                  </widget>
+                                                            </item>
+                                                            <item>
+                                                                  <widget class="QPushButton" name="pushButton_8">
+                                                                        <property name="minimumSize">
+                                                                              <size>
+                                                                                    <width>0</width>
+                                                                                    <height>50</height>
+                                                                              </size>
+                                                                        </property>
+                                                                        <property name="font">
+                                                                              <font>
+                                                                                    <family>Bahnschrift Condensed</family>
+                                                                                    <pointsize>15</pointsize>
+                                                                                    <bold>true</bold>
+                                                                              </font>
+                                                                        </property>
+                                                                        <property name="styleSheet">
+                                                                              <string notr="true">QPushButton{
+border-radius:10px;
+background-color: rgb(244, 249, 255);
+color: rgb(85, 85, 87);
+}
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(60, 160, 255, 255), stop:1 rgba(57, 179, 255, 255));
+	color: rgb(255, 255, 255);
+border-top-left-radius:25px;
+border-top-right-radius:25px;
+border-bottom-right-radius:0px;
+border-bottom-left-radius:0px;
+}
+QPushButton:pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(60, 160, 255, 255), stop:1 rgba(57, 179, 255, 255));
+	color: rgb(255, 255, 255);
+border-top-left-radius:25px;
+border-top-right-radius:25px;
+border-bottom-right-radius:0px;
+border-bottom-left-radius:0px;
+}</string>
+                                                                        </property>
+                                                                        <property name="text">
+                                                                              <string>Clinical Assessment</string>
+                                                                        </property>
+                                                                  </widget>
+                                                            </item>
+                                                            <item>
+                                                                  <widget class="QPushButton" name="pushButton_9">
+                                                                        <property name="minimumSize">
+                                                                              <size>
+                                                                                    <width>0</width>
+                                                                                    <height>50</height>
+                                                                              </size>
+                                                                        </property>
+                                                                        <property name="font">
+                                                                              <font>
+                                                                                    <family>Bahnschrift Condensed</family>
+                                                                                    <pointsize>15</pointsize>
+                                                                                    <bold>true</bold>
+                                                                              </font>
+                                                                        </property>
+                                                                        <property name="styleSheet">
+                                                                              <string notr="true">QPushButton{
+border-radius:10px;
+background-color: rgb(244, 249, 255);
+color: rgb(85, 85, 87);
+}
+QPushButton:hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(58, 180, 255, 255), stop:1 rgba(56, 200, 255, 255));
+	color: rgb(255, 255, 255);
+border-top-left-radius:25px;
+border-top-right-radius:25px;
+border-bottom-right-radius:0px;
+border-bottom-left-radius:0px;
+}
+QPushButton:pressed{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(58, 180, 255, 255), stop:1 rgba(56, 200, 255, 255));
+color: rgb(255, 255, 255);
+border-top-left-radius:25px;
+border-top-right-radius:25px;
+border-bottom-right-radius:0px;
+border-bottom-left-radius:0px;
+}</string>
+                                                                        </property>
+                                                                        <property name="text">
+                                                                              <string>Dietary Assessment</string>
+                                                                        </property>
+                                                                  </widget>
+                                                            </item>
+                                                      </layout>
+                                                </widget>
+                                          </item>
+                                          <item>
+                                                <widget class="QFrame" name="frame_3">
+                                                      <property name="styleSheet">
+                                                            <string notr="true">/*background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(93, 141, 243, 255), stop:1 rgba(157, 224, 250, 255));*/
+background-image: url(:/images/Pat_Rec3.png);
+border:none;
+                                                            </string>
+                                                      </property>
+                                                      <property name="frameShape">
+                                                            <enum>QFrame::StyledPanel</enum>
+                                                      </property>
+                                                      <property name="frameShadow">
+                                                            <enum>QFrame::Raised</enum>
+                                                      </property>
+                                                      <layout class="QVBoxLayout" name="verticalLayout_3">
+                                                            <item>
+                                                                  <widget class="QFrame" name="frame_6">
+                                                                        <property name="maximumSize">
+                                                                              <size>
+                                                                                    <width>16777215</width>
+                                                                                    <height>100</height>
+                                                                              </size>
+                                                                        </property>
+                                                                        <property name="styleSheet">
+                                                                              <string notr="true">background:None;</string>
+                                                                        </property>
+                                                                        <property name="frameShape">
+                                                                              <enum>QFrame::StyledPanel</enum>
+                                                                        </property>
+                                                                        <property name="frameShadow">
+                                                                              <enum>QFrame::Raised</enum>
+                                                                        </property>
+                                                                  </widget>
+                                                            </item>
+                                                            <item>
+                                                                  <widget class="QFrame" name="frame_5">
+                                                                        <property name="styleSheet">
+                                                                              <string notr="true">background:None;</string>
+                                                                        </property>
+                                                                        <property name="frameShape">
+                                                                              <enum>QFrame::StyledPanel</enum>
+                                                                        </property>
+                                                                        <property name="frameShadow">
+                                                                              <enum>QFrame::Raised</enum>
+                                                                        </property>
+                                                                        <layout class="QHBoxLayout" name="horizontalLayout_3">
+                                                                              <item>
+                                                                                    <widget class="QFrame" name="frame_8">
+                                                                                          <property name="minimumSize">
+                                                                                                <size>
+                                                                                                      <width>100</width>
+                                                                                                      <height>0</height>
+                                                                                                </size>
+                                                                                          </property>
+                                                                                          <property name="maximumSize">
+                                                                                                <size>
+                                                                                                      <width>150</width>
+                                                                                                      <height>16777215</height>
+                                                                                                </size>
+                                                                                          </property>
+                                                                                          <property name="styleSheet">
+                                                                                                <string notr="true">background:None;</string>
+                                                                                          </property>
+                                                                                          <property name="frameShape">
+                                                                                                <enum>QFrame::StyledPanel</enum>
+                                                                                          </property>
+                                                                                          <property name="frameShadow">
+                                                                                                <enum>QFrame::Raised</enum>
+                                                                                          </property>
+                                                                                    </widget>
+                                                                              </item>
+                                                                              <item>
+                                                                                    <widget class="QFrame" name="frame_9">
+                                                                                          <property name="maximumSize">
+                                                                                                <size>
+                                                                                                      <width>16777215</width>
+                                                                                                      <height>16777215</height>
+                                                                                                </size>
+                                                                                          </property>
+                                                                                          <property name="styleSheet">
+                                                                                                <string notr="true">background:None;</string>
+                                                                                          </property>
+                                                                                          <property name="frameShape">
+                                                                                                <enum>QFrame::StyledPanel</enum>
+                                                                                          </property>
+                                                                                          <property name="frameShadow">
+                                                                                                <enum>QFrame::Raised</enum>
+                                                                                          </property>
+                                                                                          <layout class="QVBoxLayout" name="verticalLayout_4">
+                                                                                                <item>
+                                                                                                      <widget class="QFrame" name="frame_11">
+                                                                                                            <property name="minimumSize">
+                                                                                                                  <size>
+                                                                                                                        <width>0</width>
+                                                                                                                        <height>50</height>
+                                                                                                                  </size>
+                                                                                                            </property>
+                                                                                                            <property name="styleSheet">
+                                                                                                                  <string notr="true">background:None;</string>
+                                                                                                            </property>
+                                                                                                            <property name="frameShape">
+                                                                                                                  <enum>QFrame::StyledPanel</enum>
+                                                                                                            </property>
+                                                                                                            <property name="frameShadow">
+                                                                                                                  <enum>QFrame::Raised</enum>
+                                                                                                            </property>
+                                                                                                            <layout class="QHBoxLayout" name="horizontalLayout_4">
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLabel" name="label">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>0</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="font">
+                                                                                                                                    <font>
+                                                                                                                                          <family>Bahnschrift SemiBold</family>
+                                                                                                                                          <pointsize>12</pointsize>
+                                                                                                                                          <bold>true</bold>
+                                                                                                                                    </font>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">color: rgb(255, 255, 255);</string>
+                                                                                                                              </property>
+                                                                                                                              <property name="text">
+                                                                                                                                    <string>Length:</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLineEdit" name="lineEdit">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>500</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">border-radius:8px;</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                            </layout>
+                                                                                                      </widget>
+                                                                                                </item>
+                                                                                                <item>
+                                                                                                      <widget class="QFrame" name="frame_14">
+                                                                                                            <property name="styleSheet">
+                                                                                                                  <string notr="true">background:None;</string>
+                                                                                                            </property>
+                                                                                                            <property name="frameShape">
+                                                                                                                  <enum>QFrame::StyledPanel</enum>
+                                                                                                            </property>
+                                                                                                            <property name="frameShadow">
+                                                                                                                  <enum>QFrame::Raised</enum>
+                                                                                                            </property>
+                                                                                                            <layout class="QHBoxLayout" name="horizontalLayout_7">
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLabel" name="label_4">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>0</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="font">
+                                                                                                                                    <font>
+                                                                                                                                          <family>Bahnschrift SemiBold</family>
+                                                                                                                                          <pointsize>12</pointsize>
+                                                                                                                                          <bold>true</bold>
+                                                                                                                                    </font>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">color: rgb(255, 255, 255);</string>
+                                                                                                                              </property>
+                                                                                                                              <property name="text">
+                                                                                                                                    <string>Height:</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLineEdit" name="lineEdit_4">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>500</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">border-radius:8px;</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                            </layout>
+                                                                                                      </widget>
+                                                                                                </item>
+                                                                                                <item>
+                                                                                                      <widget class="QFrame" name="frame_17">
+                                                                                                            <property name="styleSheet">
+                                                                                                                  <string notr="true">background:None;</string>
+                                                                                                            </property>
+                                                                                                            <property name="frameShape">
+                                                                                                                  <enum>QFrame::StyledPanel</enum>
+                                                                                                            </property>
+                                                                                                            <property name="frameShadow">
+                                                                                                                  <enum>QFrame::Raised</enum>
+                                                                                                            </property>
+                                                                                                            <layout class="QHBoxLayout" name="horizontalLayout_10">
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLabel" name="label_7">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>0</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="font">
+                                                                                                                                    <font>
+                                                                                                                                          <family>Bahnschrift SemiBold</family>
+                                                                                                                                          <pointsize>12</pointsize>
+                                                                                                                                          <bold>true</bold>
+                                                                                                                                    </font>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">color: rgb(255, 255, 255);</string>
+                                                                                                                              </property>
+                                                                                                                              <property name="text">
+                                                                                                                                    <string>Weight:</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLineEdit" name="lineEdit_7">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>500</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">border-radius:8px;</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                            </layout>
+                                                                                                      </widget>
+                                                                                                </item>
+                                                                                                <item>
+                                                                                                      <widget class="QFrame" name="frame_13">
+                                                                                                            <property name="styleSheet">
+                                                                                                                  <string notr="true">background:None;</string>
+                                                                                                            </property>
+                                                                                                            <property name="frameShape">
+                                                                                                                  <enum>QFrame::StyledPanel</enum>
+                                                                                                            </property>
+                                                                                                            <property name="frameShadow">
+                                                                                                                  <enum>QFrame::Raised</enum>
+                                                                                                            </property>
+                                                                                                            <layout class="QHBoxLayout" name="horizontalLayout_6">
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLabel" name="label_3">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>0</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="font">
+                                                                                                                                    <font>
+                                                                                                                                          <family>Bahnschrift SemiBold</family>
+                                                                                                                                          <pointsize>12</pointsize>
+                                                                                                                                          <bold>true</bold>
+                                                                                                                                    </font>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">color: rgb(255, 255, 255);</string>
+                                                                                                                              </property>
+                                                                                                                              <property name="text">
+                                                                                                                                    <string>Weight-for-height:</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLineEdit" name="lineEdit_3">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>500</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">border-radius:8px;</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                            </layout>
+                                                                                                      </widget>
+                                                                                                </item>
+                                                                                                <item>
+                                                                                                      <widget class="QFrame" name="frame_12">
+                                                                                                            <property name="styleSheet">
+                                                                                                                  <string notr="true">background:None;</string>
+                                                                                                            </property>
+                                                                                                            <property name="frameShape">
+                                                                                                                  <enum>QFrame::StyledPanel</enum>
+                                                                                                            </property>
+                                                                                                            <property name="frameShadow">
+                                                                                                                  <enum>QFrame::Raised</enum>
+                                                                                                            </property>
+                                                                                                            <layout class="QHBoxLayout" name="horizontalLayout_5">
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLabel" name="label_2">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>0</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="font">
+                                                                                                                                    <font>
+                                                                                                                                          <family>Bahnschrift SemiBold</family>
+                                                                                                                                          <pointsize>12</pointsize>
+                                                                                                                                          <bold>true</bold>
+                                                                                                                                    </font>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">color: rgb(255, 255, 255);</string>
+                                                                                                                              </property>
+                                                                                                                              <property name="text">
+                                                                                                                                    <string>BMI (Body Mass Index):</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLineEdit" name="lineEdit_2">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>500</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">border-radius:8px;</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                            </layout>
+                                                                                                      </widget>
+                                                                                                </item>
+                                                                                                <item>
+                                                                                                      <widget class="QFrame" name="frame_15">
+                                                                                                            <property name="styleSheet">
+                                                                                                                  <string notr="true">background:None;</string>
+                                                                                                            </property>
+                                                                                                            <property name="frameShape">
+                                                                                                                  <enum>QFrame::StyledPanel</enum>
+                                                                                                            </property>
+                                                                                                            <property name="frameShadow">
+                                                                                                                  <enum>QFrame::Raised</enum>
+                                                                                                            </property>
+                                                                                                            <layout class="QHBoxLayout" name="horizontalLayout_8">
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLabel" name="label_5">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>0</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="font">
+                                                                                                                                    <font>
+                                                                                                                                          <family>Bahnschrift SemiBold</family>
+                                                                                                                                          <pointsize>12</pointsize>
+                                                                                                                                          <bold>true</bold>
+                                                                                                                                    </font>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">color: rgb(255, 255, 255);</string>
+                                                                                                                              </property>
+                                                                                                                              <property name="text">
+                                                                                                                                    <string>Age:</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLineEdit" name="lineEdit_5">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>500</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">border-radius:8px;</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                            </layout>
+                                                                                                      </widget>
+                                                                                                </item>
+                                                                                                <item>
+                                                                                                      <widget class="QFrame" name="frame_18">
+                                                                                                            <property name="styleSheet">
+                                                                                                                  <string notr="true">background:None;</string>
+                                                                                                            </property>
+                                                                                                            <property name="frameShape">
+                                                                                                                  <enum>QFrame::StyledPanel</enum>
+                                                                                                            </property>
+                                                                                                            <property name="frameShadow">
+                                                                                                                  <enum>QFrame::Raised</enum>
+                                                                                                            </property>
+                                                                                                            <layout class="QHBoxLayout" name="horizontalLayout_11">
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLabel" name="label_8">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>0</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="font">
+                                                                                                                                    <font>
+                                                                                                                                          <family>Bahnschrift SemiBold</family>
+                                                                                                                                          <pointsize>12</pointsize>
+                                                                                                                                          <bold>true</bold>
+                                                                                                                                    </font>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">color: rgb(255, 255, 255);</string>
+                                                                                                                              </property>
+                                                                                                                              <property name="text">
+                                                                                                                                    <string>BMI-for-age z-score:</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLineEdit" name="lineEdit_8">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>500</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">border-radius:8px;</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                            </layout>
+                                                                                                      </widget>
+                                                                                                </item>
+                                                                                                <item>
+                                                                                                      <widget class="QFrame" name="frame_16">
+                                                                                                            <property name="styleSheet">
+                                                                                                                  <string notr="true">background:None;</string>
+                                                                                                            </property>
+                                                                                                            <property name="frameShape">
+                                                                                                                  <enum>QFrame::StyledPanel</enum>
+                                                                                                            </property>
+                                                                                                            <property name="frameShadow">
+                                                                                                                  <enum>QFrame::Raised</enum>
+                                                                                                            </property>
+                                                                                                            <layout class="QHBoxLayout" name="horizontalLayout_9">
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLabel" name="label_6">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>0</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="font">
+                                                                                                                                    <font>
+                                                                                                                                          <family>Bahnschrift SemiBold</family>
+                                                                                                                                          <pointsize>12</pointsize>
+                                                                                                                                          <bold>true</bold>
+                                                                                                                                    </font>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">color: rgb(255, 255, 255);</string>
+                                                                                                                              </property>
+                                                                                                                              <property name="text">
+                                                                                                                                    <string>MUAC (Mid Upper Arm Circumference):</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                                  <item alignment="Qt::AlignRight">
+                                                                                                                        <widget class="QLineEdit" name="lineEdit_6">
+                                                                                                                              <property name="minimumSize">
+                                                                                                                                    <size>
+                                                                                                                                          <width>500</width>
+                                                                                                                                          <height>30</height>
+                                                                                                                                    </size>
+                                                                                                                              </property>
+                                                                                                                              <property name="styleSheet">
+                                                                                                                                    <string notr="true">border-radius:8px;</string>
+                                                                                                                              </property>
+                                                                                                                        </widget>
+                                                                                                                  </item>
+                                                                                                            </layout>
+                                                                                                      </widget>
+                                                                                                </item>
+                                                                                          </layout>
+                                                                                    </widget>
+                                                                              </item>
+                                                                              <item>
+                                                                                    <widget class="QFrame" name="frame_10">
+                                                                                          <property name="minimumSize">
+                                                                                                <size>
+                                                                                                      <width>100</width>
+                                                                                                      <height>0</height>
+                                                                                                </size>
+                                                                                          </property>
+                                                                                          <property name="maximumSize">
+                                                                                                <size>
+                                                                                                      <width>150</width>
+                                                                                                      <height>16777215</height>
+                                                                                                </size>
+                                                                                          </property>
+                                                                                          <property name="styleSheet">
+                                                                                                <string notr="true">background:None;</string>
+                                                                                          </property>
+                                                                                          <property name="frameShape">
+                                                                                                <enum>QFrame::StyledPanel</enum>
+                                                                                          </property>
+                                                                                          <property name="frameShadow">
+                                                                                                <enum>QFrame::Raised</enum>
+                                                                                          </property>
+                                                                                    </widget>
+                                                                              </item>
+                                                                        </layout>
+                                                                  </widget>
+                                                            </item>
+                                                            <item>
+                                                                  <widget class="QFrame" name="frame_7">
+                                                                        <property name="maximumSize">
+                                                                              <size>
+                                                                                    <width>16777215</width>
+                                                                                    <height>100</height>
+                                                                              </size>
+                                                                        </property>
+                                                                        <property name="styleSheet">
+                                                                              <string notr="true">background:None;</string>
+                                                                        </property>
+                                                                        <property name="frameShape">
+                                                                              <enum>QFrame::StyledPanel</enum>
+                                                                        </property>
+                                                                        <property name="frameShadow">
+                                                                              <enum>QFrame::Raised</enum>
+                                                                        </property>
+                                                                  </widget>
+                                                            </item>
+                                                      </layout>
+                                                </widget>
+                                          </item>
+                                    </layout>
+                              </widget>
+                        </item>
+                  </layout>
+            </widget>
+      </widget>
+      <resources>
+            <include location="./Media/Resource-media.qrc"/>
+      </resources>
+      <connections/>
+</ui>

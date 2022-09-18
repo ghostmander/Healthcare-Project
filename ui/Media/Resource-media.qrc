@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="images">
+    <file>Pat_Rec3.png</file>
+  </qresource>
+  <qresource prefix="icons">
+    <file>menu.svg</file>
+    <file>database.svg</file>
+    <file>account.svg</file>
+    <file>home.svg</file>
+    <file>form.svg</file>
+  </qresource>
+</RCC>
