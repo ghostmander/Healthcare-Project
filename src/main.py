@@ -186,6 +186,7 @@ if __name__ == '__main__':
 
     # Config
     widget.setWindowTitle("Anthropometric Assessment")
+    widget.resize(1200, 750)
     widget.show()
     try:
         sys.exit(app.exec_())

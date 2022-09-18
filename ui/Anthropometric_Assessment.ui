@@ -78,7 +78,7 @@ border-bottom-left-radius:40px;</string>
                                                       </property>
                                                       <property name="styleSheet">
                                                             <string notr="true">QPushButton{
-image: url(:/icons/menu.svg);
+image: url(ui/Media/menu.svg);
 padding-top:10px;
 padding-bottom:10px;
 }
@@ -107,7 +107,7 @@ background-color: rgb(65, 41, 191);
                                                       </property>
                                                       <property name="styleSheet">
                                                             <string notr="true">QPushButton{
-image: url(:/icons/account.svg);
+image: url(ui/Media/account.svg);
 padding-top:10px;
 padding-bottom:10px;
 }
@@ -133,7 +133,7 @@ background-color: rgb(65, 41, 191);
                                                       </property>
                                                       <property name="styleSheet">
                                                             <string notr="true">QPushButton{
-	image: url(:/icons/form.svg);
+	image: url(ui/Media/form.svg);
 padding-top:10px;
 padding-bottom:10px;
 }
@@ -159,7 +159,7 @@ background-color: rgb(65, 41, 191);
                                                       </property>
                                                       <property name="styleSheet">
                                                             <string notr="true">QPushButton{
-image: url(:/icons/home.svg);
+image: url(ui/Media/home.svg);
 padding-top:10px;
 padding-bottom:10px;
 }
@@ -185,7 +185,7 @@ background-color: rgb(65, 41, 191);
                                                       </property>
                                                       <property name="styleSheet">
                                                             <string notr="true">QPushButton{
-	image: url(:/icons/database.svg);
+	image: url(ui/Media/database.svg);
 padding-top:10px;
 padding-bottom:10px;
 }
