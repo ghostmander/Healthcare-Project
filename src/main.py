@@ -60,24 +60,37 @@ class AnthropometryPage(QMainWindow):
             v["LineEdit"].setPlaceholderText(v["Placeholder"])
 
         self.biochemicalButton = self.findChild(QPushButton, "pushButton_7")
+        self.clinicalButton = self.findChild(QPushButton, "pushButton_8")
+        self.dietaryButton = self.findChild(QPushButton, "pushButton_9")
         self.biochemicalButton.clicked.connect(self.go_to_biochemical)
+        self.clinicalButton.clicked.connect(self.go_to_clinical)
+        self.dietaryButton.clicked.connect(self.go_to_dietary)
 
     def go_to_biochemical(self):
         biochem = BiochemicalPage()
         widget.addWidget(biochem)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
+    def go_to_clinical(self):
+        clinical = ClinicalPage()
+        widget.addWidget(clinical)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def go_to_dietary(self):
+        diatery = DietaryPage()
+        widget.addWidget(diatery)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
 
 # =================================================================================================
 #                               BIOCHEMICAL ASSESSMENT
 # =================================================================================================
+
+
 class BiochemicalPage(QMainWindow):
     def __init__(self):
         super(BiochemicalPage, self).__init__()
         uic.loadUi(r"ui\Biochemical_Assessment.ui", self)
 
-        self.anthropometryButton = self.findChild(QPushButton, "pushButton_6")
-        self.anthropometryButton.clicked.connect(self.go_to_anthropometric)
         inputfields = {
             "Glucose": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit"),
@@ -169,9 +182,145 @@ class BiochemicalPage(QMainWindow):
             v["lineEdit"].setValidator(v["Validator"])
             v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
 
+        self.anthropometryButton = self.findChild(QPushButton, "pushButton_6")
+        self.clinicalButton = self.findChild(QPushButton, "pushButton_8")
+        self.dietaryButton = self.findChild(QPushButton, "pushButton_9")
+        self.anthropometryButton.clicked.connect(self.go_to_anthropometric)
+        self.clinicalButton.clicked.connect(self.go_to_clinical)
+        self.dietaryButton.clicked.connect(self.go_to_dietary)
+
     def go_to_anthropometric(self):
         anthro = AnthropometryPage()
         widget.addWidget(anthro)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def go_to_clinical(self):
+        clinical = ClinicalPage()
+        widget.addWidget(clinical)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def go_to_dietary(self):
+        diatery = DietaryPage()
+        widget.addWidget(diatery)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+# =================================================================================================
+#                               CLINICAL ASSESSMENT
+# =================================================================================================
+class ClinicalPage(QMainWindow):
+    def __init__(self):
+        super(ClinicalPage, self).__init__()
+        uic.loadUi(r"ui\Clinical_Assessment.ui", self)
+
+        inputfields = {
+            "BLE": {
+                "lineEdit": self.findChild(QLineEdit, "lineEdit"),
+                "PlaceHolder": "Bilateral Pitting Edema",
+                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+            },
+            "Bitot": {
+                "lineEdit": self.findChild(QLineEdit, "lineEdit_4"),
+                "PlaceHolder": "Bitot Spot",
+                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+            },
+            "Emaciation": {
+                "lineEdit": self.findChild(QLineEdit, "lineEdit_2"),
+                "PlaceHolder": "Emaciation",
+                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+            },
+            "HairLoss": {
+                "lineEdit": self.findChild(QLineEdit, "lineEdit_5"),
+                "PlaceHolder": "Hair Loss",
+                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+            },
+            "Changes_Hairloss": {
+                "lineEdit": self.findChild(QLineEdit, "lineEdit_3"),
+                "PlaceHolder": "Changes in Hair Loss",
+                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+            },
+        }
+        for k, v in inputfields.items():
+            v["lineEdit"].setValidator(v["Validator"])
+            v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
+
+        self.anthropometryButton = self.findChild(QPushButton, "pushButton_6")
+        self.dietaryButton = self.findChild(QPushButton, "pushButton_9")
+        self.biochemicalButton = self.findChild(QPushButton, "pushButton_7")
+        self.anthropometryButton.clicked.connect(self.go_to_anthropometric)
+        self.biochemicalButton.clicked.connect(self.go_to_biochemical)
+        self.dietaryButton.clicked.connect(self.go_to_dietary)
+
+    def go_to_biochemical(self):
+        biochem = BiochemicalPage()
+        widget.addWidget(biochem)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def go_to_anthropometric(self):
+        anthro = AnthropometryPage()
+        widget.addWidget(anthro)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def go_to_dietary(self):
+        diatery = DietaryPage()
+        widget.addWidget(diatery)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+
+# =================================================================================================
+#                               DIETARY ASSESSMENT
+# =================================================================================================
+class DietaryPage(QMainWindow):
+    def __init__(self):
+        super(DietaryPage, self).__init__()
+        uic.loadUi(r"ui\Dietary_Assessment.ui", self)
+
+        inputfields = {
+            "DDS": {
+                "lineEdit": self.findChild(QLineEdit, "lineEdit"),
+                "PlaceHolder": "Dietary Diversity Score",
+                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+            },
+            "24hR": {
+                "lineEdit": self.findChild(QLineEdit, "lineEdit_4"),
+                "PlaceHolder": "24 Hour Recall",
+                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+            },
+            "FFQ": {
+                "lineEdit": self.findChild(QLineEdit, "lineEdit_2"),
+                "PlaceHolder": "Food Frequency Questionnaire",
+                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+            },
+            "FGQ": {
+                "lineEdit": self.findChild(QLineEdit, "lineEdit_3"),
+                "PlaceHolder": "Food Group Questionnaire",
+                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+            },
+        }
+        for k, v in inputfields.items():
+            v["lineEdit"].setValidator(v["Validator"])
+            v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
+
+        self.anthropometryButton = self.findChild(QPushButton, "pushButton_6")
+        self.clinicalButton = self.findChild(QPushButton, "pushButton_8")
+        self.biochemicalButton = self.findChild(QPushButton, "pushButton_7")
+        self.anthropometryButton.clicked.connect(self.go_to_anthropometric)
+        self.biochemicalButton.clicked.connect(self.go_to_biochemical)
+        self.clinicalButton.clicked.connect(self.go_to_clinical)
+
+    def go_to_anthropometric(self):
+        anthro = AnthropometryPage()
+        widget.addWidget(anthro)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def go_to_biochemical(self):
+        biochem = BiochemicalPage()
+        widget.addWidget(biochem)
+        widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def go_to_clinical(self):
+        clinical = ClinicalPage()
+        widget.addWidget(clinical)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
 
