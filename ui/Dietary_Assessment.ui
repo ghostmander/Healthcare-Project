@@ -566,9 +566,9 @@ border-radius:30px;</string>
                      </property>
                      <property name="font">
                       <font>
-                       <family>Bahnschrift SemiBold</family>
-                       <pointsize>12</pointsize>
-                       <bold>true</bold>
+                       <family>Bahnschrift Condensed</family>
+                       <pointsize>21</pointsize>
+                       <bold>false</bold>
                       </font>
                      </property>
                      <property name="styleSheet">
@@ -623,9 +623,9 @@ border-radius:30px;</string>
                      </property>
                      <property name="font">
                       <font>
-                       <family>Bahnschrift SemiBold</family>
-                       <pointsize>12</pointsize>
-                       <bold>true</bold>
+                       <family>Bahnschrift Condensed</family>
+                       <pointsize>21</pointsize>
+                       <bold>false</bold>
                       </font>
                      </property>
                      <property name="styleSheet">
@@ -680,9 +680,9 @@ border-radius:30px;</string>
                      </property>
                      <property name="font">
                       <font>
-                       <family>Bahnschrift SemiBold</family>
-                       <pointsize>12</pointsize>
-                       <bold>true</bold>
+                       <family>Bahnschrift Condensed</family>
+                       <pointsize>21</pointsize>
+                       <bold>false</bold>
                       </font>
                      </property>
                      <property name="styleSheet">
@@ -737,9 +737,9 @@ border-radius:30px;</string>
                      </property>
                      <property name="font">
                       <font>
-                       <family>Bahnschrift SemiBold</family>
-                       <pointsize>12</pointsize>
-                       <bold>true</bold>
+                       <family>Bahnschrift Condensed</family>
+                       <pointsize>21</pointsize>
+                       <bold>false</bold>
                       </font>
                      </property>
                      <property name="styleSheet">
