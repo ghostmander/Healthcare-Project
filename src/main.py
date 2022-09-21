@@ -16,42 +16,42 @@ class AnthropometryPage(QMainWindow):
             "Length": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit"),
                 "Placeholder": "Length (cm)",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Height": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_4"),
                 "Placeholder": "Height (cm)",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Weight": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_7"),
                 "Placeholder": "Weight (kg)",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Wt-Ht": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_3"),
                 "Placeholder": "Weight for Height",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "BMI": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_2"),
                 "Placeholder": "BMI",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Age": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_5"),
                 "Placeholder": "Age (years)",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "BMI-ZScore": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_8"),
                 "Placeholder": "BMI for age Z-Score",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "MUAC": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_6"),
                 "Placeholder": "MUAC (cm)",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             }
         }
 
@@ -95,87 +95,87 @@ class BiochemicalPage(QMainWindow):
             "Glucose": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit"),
                 "PlaceHolder": "Glucose",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "BUN": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_7"),
                 "PlaceHolder": "BUN",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Creatinine": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_6"),
                 "PlaceHolder": "Creatinine",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "BUN/Creatinine": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_2"),
                 "PlaceHolder": "BUN/Creatinine",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Calcium": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_3"),
                 "PlaceHolder": "Calcium",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Protein": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_4"),
                 "PlaceHolder": "Protein",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "ALP": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_8"),
                 "PlaceHolder": "ALP",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             # "Glucose2": {
             #     "lineEdit": self.findChild(QLineEdit, "lineEdit_5"),
             #     "PlaceHolder": "Glucose2",
-            #     "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+            #     "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             # },
             "ALT": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_11"),
                 "PlaceHolder": "ALT",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "RBC_Count": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_10"),
                 "PlaceHolder": "RBC_Count",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Hemaglobin": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_16"),
                 "PlaceHolder": "Hemaglobin",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Hematrocrit": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_9"),
                 "PlaceHolder": "Hematrocrit",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "MCV": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_15"),
                 "PlaceHolder": "MCV",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "MCH": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_13"),
                 "PlaceHolder": "MCH",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Platelets": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_12"),
                 "PlaceHolder": "Platelets",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "WBC_Count": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_14"),
                 "PlaceHolder": "WBC_Count",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Helminth": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_17"),
                 "PlaceHolder": "Helminth",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             }
         }
         for k, v in inputfields.items():
@@ -217,27 +217,27 @@ class ClinicalPage(QMainWindow):
             "BLE": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit"),
                 "PlaceHolder": "Bilateral Pitting Edema",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Bitot": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_4"),
                 "PlaceHolder": "Bitot Spot",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Emaciation": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_2"),
                 "PlaceHolder": "Emaciation",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "HairLoss": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_5"),
                 "PlaceHolder": "Hair Loss",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "Changes_Hairloss": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_3"),
                 "PlaceHolder": "Changes in Hair Loss",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
         }
         for k, v in inputfields.items():
@@ -279,22 +279,22 @@ class DietaryPage(QMainWindow):
             "DDS": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit"),
                 "PlaceHolder": "Dietary Diversity Score",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "24hR": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_4"),
                 "PlaceHolder": "24 Hour Recall",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "FFQ": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_2"),
                 "PlaceHolder": "Food Frequency Questionnaire",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
             "FGQ": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_3"),
                 "PlaceHolder": "Food Group Questionnaire",
-                "Validator": QtGui.QDoubleValidator(0.0, 300.0, 2, notation=QtGui.QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
         }
         for k, v in inputfields.items():
