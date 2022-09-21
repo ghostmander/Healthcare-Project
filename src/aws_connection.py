@@ -15,4 +15,10 @@ with connection:
     cur = connection.cursor()
     cur.execute("SHOW TABLES")
     tables = cur.fetchall()
-    print(f"List of Tables: [{', '.join([table[0] for table in tables])}]")
+    for table in tables:
+        cur.execute(f"DESCRIBE {table[0]}")
+        tableDesc = cur.fetchall()
+        print("Table: ", table[0])
+        for column in tableDesc:
+            print("\t", column)
+        print('\n\n')
