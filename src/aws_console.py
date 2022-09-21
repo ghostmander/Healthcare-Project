@@ -20,8 +20,9 @@ with connection:
             print(">> Type 'EXIT' to exit the console")
         if query == "EXIT":
             break
-        try:
-            cur.execute(query)
-            print(cur.fetchall())
-        except:
-            print("Invalid Query")
+        else:
+            try:
+                cur.execute(query)
+                print(cur.fetchall())
+            except:
+                print("Invalid Query")
