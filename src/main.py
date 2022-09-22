@@ -1,7 +1,8 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QLineEdit, QPushButton
-from PyQt5 import uic, QtGui
-from PyQt5.QtGui import QDoubleValidator
+from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QLineEdit, QPushButton, QMessageBox
+from PyQt5 import uic
+from PyQt5.QtGui import QDoubleValidator, QIntValidator
 import sys
+from aws.connection_utils import insert_anthropometric
 
 
 # =================================================================================================
@@ -16,42 +17,50 @@ class AnthropometryPage(QMainWindow):
             "Length": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit"),
                 "Placeholder": "Length (cm)",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Datatype": float
             },
             "Height": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_4"),
                 "Placeholder": "Height (cm)",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Datatype": float
             },
             "Weight": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_7"),
                 "Placeholder": "Weight (kg)",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Datatype": float
             },
             "Wt-Ht": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_3"),
                 "Placeholder": "Weight for Height",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Datatype": float
             },
             "BMI": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_2"),
                 "Placeholder": "BMI",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 99.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Datatype": float
             },
             "Age": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_5"),
                 "Placeholder": "Age (years)",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QIntValidator(0, 199),
+                "Datatype": int
             },
             "BMI-ZScore": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_8"),
                 "Placeholder": "BMI for age Z-Score",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 3000.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Datatype": float
             },
             "MUAC": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_6"),
                 "Placeholder": "MUAC (cm)",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Datatype": float
             }
         }
 
@@ -59,12 +68,15 @@ class AnthropometryPage(QMainWindow):
             v["LineEdit"].setValidator(v["Validator"])
             v["LineEdit"].setPlaceholderText(v["Placeholder"])
 
+        self.inputs = inputs
         self.biochemicalButton = self.findChild(QPushButton, "pushButton_7")
         self.clinicalButton = self.findChild(QPushButton, "pushButton_8")
         self.dietaryButton = self.findChild(QPushButton, "pushButton_9")
         self.biochemicalButton.clicked.connect(self.go_to_biochemical)
         self.clinicalButton.clicked.connect(self.go_to_clinical)
         self.dietaryButton.clicked.connect(self.go_to_dietary)
+        self.submitButton = self.findChild(QPushButton, "pushButton_10")
+        self.submitButton.clicked.connect(self.submit)
 
     def go_to_biochemical(self):
         biochem = BiochemicalPage()
@@ -80,6 +92,33 @@ class AnthropometryPage(QMainWindow):
         diatery = DietaryPage()
         widget.addWidget(diatery)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def submit(self):
+        proceedable = True
+        for k, v in self.inputs.items():
+            if v["LineEdit"].text() == "":
+                msg = QMessageBox()
+                msg.setWindowTitle("Error")
+                msg.setText("Please fill all the fields")
+                msg.setIcon(QMessageBox.Critical)
+                msg.exec_()
+                proceedable = False
+                break
+        if proceedable:
+            data = []
+            for v in self.inputs.values():
+                data.append(v["LineEdit"].text())
+                # data.append(v["Datatype"](v["LineEdit"].text()))
+                v["LineEdit"].setText("")
+
+            insert_anthropometric(f"'p1', {', '.join(data)}")
+            print("Submitting the data: ", data)
+            msg = QMessageBox()
+            msg.setWindowTitle("Success!")
+            msg.setText("Data Submitted Successfully")
+            msg.setIcon(QMessageBox.Information)
+            msg.exec_()
+
 
 # =================================================================================================
 #                               BIOCHEMICAL ASSESSMENT
@@ -127,11 +166,6 @@ class BiochemicalPage(QMainWindow):
                 "PlaceHolder": "ALP",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
-            # "Glucose2": {
-            #     "lineEdit": self.findChild(QLineEdit, "lineEdit_5"),
-            #     "PlaceHolder": "Glucose2",
-            #     "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
-            # },
             "ALT": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_11"),
                 "PlaceHolder": "ALT",
