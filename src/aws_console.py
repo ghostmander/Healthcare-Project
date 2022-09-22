@@ -18,12 +18,15 @@ with connection:
         query = input(">> ")
         if query in ("?", "help", "HELP", "h", "H", "-h", "--help"):
             print(">> Type 'EXIT' to exit the console")
-        if query == "EXIT":
+        elif query == "EXIT" or query == "exit":
             break
+        elif query in ("clear", "CLEAR"):
+            os.system('cls|clear')
         else:
             try:
                 cur.execute(query)
                 connection.commit()
                 print(cur.fetchall())
-            except:
+            except Exception as e:
                 print("Invalid Query")
+                print("Traceeback: ", e)
