@@ -2,7 +2,7 @@
 import pymysql
 from dotenv import load_dotenv
 import os
-load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '..', '.env'))
 
 
 host = os.getenv('AWS_HOSTNAME')
@@ -44,7 +44,7 @@ def insert_anthropometric(values):
     with connection:
         cur = connection.cursor()
         cur.execute(
-            f"INSERT INTO ANTRHOPOMETRIC_ASSESSMENT (PATIENT_ID, Length_and_height_cm, Weight_for_height_kg, BMI, BMI_for_age_z_score, MUAC) VALUES ({values})")
+            f"INSERT INTO ANTHRO VALUES ({values})")
         connection.commit()
 
 
