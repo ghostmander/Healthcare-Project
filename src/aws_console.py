@@ -23,6 +23,7 @@ with connection:
         else:
             try:
                 cur.execute(query)
+                connection.commit()
                 print(cur.fetchall())
             except:
                 print("Invalid Query")
