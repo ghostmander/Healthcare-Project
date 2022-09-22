@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1159</width>
-    <height>703</height>
+    <width>1151</width>
+    <height>624</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -973,6 +973,50 @@ border:none;
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item alignment="Qt::AlignRight">
+              <widget class="QPushButton" name="pushButton_10">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Bahnschrift Condensed</family>
+                 <pointsize>16</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+background-color: rgb(244, 249, 255);
+border-radius:10px;
+}
+
+QPushButton:hover{
+	background-color: rgb(90, 68, 215);
+	color: rgb(255, 255, 255);
+}
+
+QPushButton:pressed{
+	background-color: rgb(48, 37, 118);
+	color:rgb(255,255,255)
+}</string>
+               </property>
+               <property name="text">
+                <string>  Submit  </string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
