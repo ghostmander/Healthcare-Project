@@ -1,8 +1,8 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QLineEdit, QPushButton, QMessageBox
-from PyQt5 import uic
-from PyQt5.QtGui import QDoubleValidator, QIntValidator
+from PyQt5 import uic, QtCore
+from PyQt5.QtGui import QDoubleValidator, QIntValidator, QRegExpValidator
 import sys
-from aws.connection_utils import insert_anthropometric
+from aws.connection_utils import *
 
 
 # =================================================================================================
@@ -18,49 +18,41 @@ class AnthropometryPage(QMainWindow):
                 "LineEdit": self.findChild(QLineEdit, "lineEdit"),
                 "Placeholder": "Length (cm)",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
-                "Datatype": float
             },
             "Height": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_4"),
                 "Placeholder": "Height (cm)",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
-                "Datatype": float
             },
             "Weight": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_7"),
                 "Placeholder": "Weight (kg)",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
-                "Datatype": float
             },
             "Wt-Ht": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_3"),
                 "Placeholder": "Weight for Height",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
-                "Datatype": float
             },
             "BMI": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_2"),
                 "Placeholder": "BMI",
                 "Validator": QDoubleValidator(0.0, 99.0, 2, notation=QDoubleValidator.StandardNotation),
-                "Datatype": float
             },
             "Age": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_5"),
                 "Placeholder": "Age (years)",
-                "Validator": QIntValidator(0, 199),
-                "Datatype": int
+                "Validator": QRegExpValidator(QtCore.QRegExp("[1-9]\d?")),
             },
             "BMI-ZScore": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_8"),
                 "Placeholder": "BMI for age Z-Score",
                 "Validator": QDoubleValidator(0.0, 3000.0, 2, notation=QDoubleValidator.StandardNotation),
-                "Datatype": float
             },
             "MUAC": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_6"),
                 "Placeholder": "MUAC (cm)",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
-                "Datatype": float
             }
         }
 
@@ -206,6 +198,8 @@ class BiochemicalPage(QMainWindow):
                 "PlaceHolder": "WBC_Count",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
             },
+        }
+        self.stoolInputs = {
             "Helminth": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_17"),
                 "PlaceHolder": "Helminth",
@@ -215,13 +209,19 @@ class BiochemicalPage(QMainWindow):
         for k, v in inputfields.items():
             v["lineEdit"].setValidator(v["Validator"])
             v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
+        for k, v in self.stoolInputs.items():
+            v["lineEdit"].setValidator(v["Validator"])
+            v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
+        self.bioInputs = inputfields
 
         self.anthropometryButton = self.findChild(QPushButton, "pushButton_6")
         self.clinicalButton = self.findChild(QPushButton, "pushButton_8")
         self.dietaryButton = self.findChild(QPushButton, "pushButton_9")
+        self.submit_button = self.findChild(QPushButton, "Submit_button")
         self.anthropometryButton.clicked.connect(self.go_to_anthropometric)
         self.clinicalButton.clicked.connect(self.go_to_clinical)
         self.dietaryButton.clicked.connect(self.go_to_dietary)
+        self.submit_button.clicked.connect(self.submit)
 
     def go_to_anthropometric(self):
         anthro = AnthropometryPage()
@@ -238,10 +238,39 @@ class BiochemicalPage(QMainWindow):
         widget.addWidget(diatery)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
+    def submit(self):
+        proceedable = True
+        for v in [*self.bioInputs.values(), *self.stoolInputs.values()]:
+            if v["lineEdit"].text() == "":
+                msg = QMessageBox()
+                msg.setWindowTitle("Error")
+                msg.setText("Please fill all the fields")
+                msg.setIcon(QMessageBox.Critical)
+                msg.exec_()
+                proceedable = False
+                break
+        if proceedable:
+            data = []
+            for v in self.bioInputs.values():
+                data.append(v["lineEdit"].text())
+                # data.append(v["Datatype"](v["LineEdit"].text()))
+                v["lineEdit"].setText("")
+
+            insert_metabolic(f"'p1', {', '.join(data)}")
+            # insert_stool_sample( f"'p1', '{self.stoolInputs['Helminth']['lineEdit'].text()}'")
+            self.stoolInputs['Helminth']['lineEdit'].setText("")
+            print("Submitting the data: ", data)
+            msg = QMessageBox()
+            msg.setWindowTitle("Success!")
+            msg.setText("Data Submitted Successfully")
+            msg.setIcon(QMessageBox.Information)
+            msg.exec_()
 
 # =================================================================================================
 #                               CLINICAL ASSESSMENT
 # =================================================================================================
+
+
 class ClinicalPage(QMainWindow):
     def __init__(self):
         super(ClinicalPage, self).__init__()
@@ -369,7 +398,7 @@ if __name__ == '__main__':
 
     # Config
     widget.setWindowTitle("Anthropometric Assessment")
-    widget.resize(1200, 750)
+    widget.resize(1250, 950)
     widget.show()
     try:
         sys.exit(app.exec_())
