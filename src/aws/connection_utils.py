@@ -52,5 +52,34 @@ def insert_clinical(values):
     with connection:
         cur = connection.cursor()
         cur.execute(
-            f"INSERT INTO CLINICAL_ASSESSMENT (PATIENT_ID, patient_name, patient_age, patient_gender, Bilateral_pitting_edma, Bitots_spots, Emaciation, Hair_Loss, Change_in_hair_color') VALUES ({values})")
+            f"INSERT INTO CLINICAL VALUES({values})")
+        connection.commit()
+
+
+def insert_dietary(values):
+    with connection:
+        cur = connection.cursor()
+        cur.execute(
+            f"INSERT INTO DIETARY VALUES({values})")
+        connection.commit()
+
+def insert_metabolic(values):
+    with connection:
+        cur = connection.cursor()
+        cur.execute(
+            f"INSERT INTO METABOLIC VALUES({values})")
+        connection.commit()
+
+def insert_patient(values):
+    with connection:
+        cur = connection.cursor()
+        cur.execute(
+            f"INSERT INTO PATIENT VALUES({values})")
+        connection.commit()
+
+def insert_stool_sample(values):
+    with connection:
+        cur = connection.cursor()
+        cur.execute(
+            f"INSERT INTO STOOL_SAMPLE_ANALYSIS VALUES({values})")
         connection.commit()
