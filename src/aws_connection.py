@@ -19,11 +19,11 @@ with connection:
         cur.execute(f"DESCRIBE {table[0]}")
         tableDesc = cur.fetchall()
         print("Table: ", table[0])
-        print(f"+{'-'*30}+{'-'*30}+{'-'*10}+{'-'*10}+{'-'*10}+{'-'*30}+")
+        print(f"+{'-'*20}+{'-'*20}+{'-'*10}+{'-'*10}+{'-'*10}+{'-'*30}+")
         print(
-            f"| {'Field':29}| {'Type':29}| {'Null':9}| {'Key':9}| {'Default':9}| {'Extra':29}|")
-        print(f"+{'-'*30}+{'-'*30}+{'-'*10}+{'-'*10}+{'-'*10}+{'-'*30}+")
+            f"| {'Field':19}| {'Type':19}| {'Null':9}| {'Key':9}| {'Default':9}| {'Extra':29}|")
+        print(f"+{'-'*20}+{'-'*20}+{'-'*10}+{'-'*10}+{'-'*10}+{'-'*30}+")
         for col in tableDesc:
             print(
-                f"| {col[0]:29}| {col[1]:29}| {col[2]:9}| {col[3]:9}| {'NULL' if col[4] is None else col[4]:9}| {col[5]:29}|")
-        print(f"+{'-'*30}+{'-'*30}+{'-'*10}+{'-'*10}+{'-'*10}+{'-'*30}+\n")
+                f"| {col[0]:19}| {col[1]:19}| {col[2]:9}| {col[3]:9}| {'NULL' if col[4] is None else col[4]:9}| {col[5]:29}|")
+        print(f"+{'-'*20}+{'-'*20}+{'-'*10}+{'-'*10}+{'-'*10}+{'-'*30}+\n")
