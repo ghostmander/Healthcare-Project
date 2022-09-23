@@ -203,15 +203,16 @@ class BiochemicalPage(QMainWindow):
             "Helminth": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_17"),
                 "PlaceHolder": "Helminth",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QRegExpValidator(QtCore.QRegExp(".{0,50}"))
             }
         }
         for k, v in inputfields.items():
             v["lineEdit"].setValidator(v["Validator"])
             v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
-        for k, v in self.stoolInputs.items():
-            v["lineEdit"].setValidator(v["Validator"])
-            v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
+        self.stoolInputs["Helminth"]["lineEdit"].setValidator(
+            self.stoolInputs["Helminth"]["Validator"])
+        self.stoolInputs["Helminth"]["lineEdit"].setPlaceholderText(
+            self.stoolInputs["Helminth"]["PlaceHolder"])
         self.bioInputs = inputfields
 
         self.anthropometryButton = self.findChild(QPushButton, "pushButton_6")
@@ -257,7 +258,8 @@ class BiochemicalPage(QMainWindow):
                 v["lineEdit"].setText("")
 
             insert_metabolic(f"'p1', {', '.join(data)}")
-            # insert_stool_sample( f"'p1', '{self.stoolInputs['Helminth']['lineEdit'].text()}'")
+            insert_stool_sample(
+                f"'p1', \"{self.stoolInputs['Helminth']['lineEdit'].text()}\"")
             self.stoolInputs['Helminth']['lineEdit'].setText("")
             print("Submitting the data: ", data)
             msg = QMessageBox()
@@ -307,12 +309,15 @@ class ClinicalPage(QMainWindow):
             v["lineEdit"].setValidator(v["Validator"])
             v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
 
+        self.inputs = inputfields
         self.anthropometryButton = self.findChild(QPushButton, "pushButton_6")
         self.dietaryButton = self.findChild(QPushButton, "pushButton_9")
         self.biochemicalButton = self.findChild(QPushButton, "pushButton_7")
+        self.submitButton = self.findChild(QPushButton, "Submit_button")
         self.anthropometryButton.clicked.connect(self.go_to_anthropometric)
         self.biochemicalButton.clicked.connect(self.go_to_biochemical)
         self.dietaryButton.clicked.connect(self.go_to_dietary)
+        self.submitButton.clicked.connect(self.submit)
 
     def go_to_biochemical(self):
         biochem = BiochemicalPage()
@@ -328,6 +333,31 @@ class ClinicalPage(QMainWindow):
         diatery = DietaryPage()
         widget.addWidget(diatery)
         widget.setCurrentIndex(widget.currentIndex() + 1)
+
+    def submit(self):
+        proceedable = True
+        for k, v in self.inputs.items():
+            if v["lineEdit"].text() == "":
+                msg = QMessageBox()
+                msg.setWindowTitle("Error")
+                msg.setText("Please fill all the fields")
+                msg.setIcon(QMessageBox.Critical)
+                msg.exec_()
+                proceedable = False
+                break
+        if proceedable:
+            data = []
+            for v in self.inputs.values():
+                data.append(v["lineEdit"].text())
+                v["lineEdit"].setText("")
+
+            insert_clinical(f"'p1', 'pat1', 21, 'M', {', '.join(data)}")
+            print("Submitting the data: ", data)
+            msg = QMessageBox()
+            msg.setWindowTitle("Success!")
+            msg.setText("Data Submitted Successfully")
+            msg.setIcon(QMessageBox.Information)
+            msg.exec_()
 
 
 # =================================================================================================
@@ -364,12 +394,15 @@ class DietaryPage(QMainWindow):
             v["lineEdit"].setValidator(v["Validator"])
             v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
 
+        self.inputs = inputfields
         self.anthropometryButton = self.findChild(QPushButton, "pushButton_6")
         self.clinicalButton = self.findChild(QPushButton, "pushButton_8")
         self.biochemicalButton = self.findChild(QPushButton, "pushButton_7")
+        self.submitButton = self.findChild(QPushButton, "Submit_button")
         self.anthropometryButton.clicked.connect(self.go_to_anthropometric)
         self.biochemicalButton.clicked.connect(self.go_to_biochemical)
         self.clinicalButton.clicked.connect(self.go_to_clinical)
+        self.submitButton.clicked.connect(self.submit)
 
     def go_to_anthropometric(self):
         anthro = AnthropometryPage()
@@ -386,6 +419,31 @@ class DietaryPage(QMainWindow):
         widget.addWidget(clinical)
         widget.setCurrentIndex(widget.currentIndex() + 1)
 
+    def submit(self):
+        proceedable = True
+        for k, v in self.inputs.items():
+            if v["lineEdit"].text() == "":
+                msg = QMessageBox()
+                msg.setWindowTitle("Error")
+                msg.setText("Please fill all the fields")
+                msg.setIcon(QMessageBox.Critical)
+                msg.exec_()
+                proceedable = False
+                break
+        if proceedable:
+            data = []
+            for v in self.inputs.values():
+                data.append(v["lineEdit"].text())
+                v["lineEdit"].setText("")
+
+            insert_dietary(f"'p1', {', '.join(data)}")
+            print("Submitting the data: ", data)
+            msg = QMessageBox()
+            msg.setWindowTitle("Success!")
+            msg.setText("Data Submitted Successfully")
+            msg.setIcon(QMessageBox.Information)
+            msg.exec_()
+
 
 if __name__ == '__main__':
     # Initialize Program
@@ -394,6 +452,7 @@ if __name__ == '__main__':
 
     # Main Window
     mainwindow = AnthropometryPage()
+    # os.system('cls|clear')
     widget.addWidget(mainwindow)
 
     # Config
