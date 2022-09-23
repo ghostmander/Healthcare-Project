@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1159</width>
-    <height>750</height>
+    <width>1207</width>
+    <height>912</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1691,6 +1691,57 @@ border-radius:30px;</string>
                  </widget>
                 </item>
                </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_34">
+            <property name="styleSheet">
+             <string notr="true">background:None;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <item alignment="Qt::AlignRight">
+              <widget class="QPushButton" name="Submit_button">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Bahnschrift Condensed</family>
+                 <pointsize>18</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+background-color: rgb(244, 249, 255);
+border-radius:10px;
+}
+
+QPushButton:hover{
+	background-color: rgb(90, 68, 215);
+	color: rgb(255, 255, 255);
+}
+
+QPushButton:pressed{
+	background-color: rgb(48, 37, 118);
+	color:rgb(255,255,255)
+}</string>
+               </property>
+               <property name="text">
+                <string>  Submit  </string>
+               </property>
               </widget>
              </item>
             </layout>
