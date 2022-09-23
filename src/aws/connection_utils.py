@@ -10,15 +10,16 @@ user = os.getenv('AWS_USERNAME')
 password = os.getenv('AWS_PASSWORD')
 database = os.getenv('AWS_DATABASE')
 
-connection = pymysql.connect(
-    host=host, user=user, passwd=password, database=database)
-
 
 def get_connection():
+    connection = pymysql.connect(
+        host=host, user=user, passwd=password, database=database)
     return connection
 
 
 def insert(table, columns, values):
+    connection = pymysql.connect(
+        host=host, user=user, passwd=password, database=database)
     with connection:
         cur = connection.cursor()
         cur.execute(f"INSERT INTO {table} ({columns}) VALUES ({values})")
@@ -26,6 +27,8 @@ def insert(table, columns, values):
 
 
 def select(table, columns, condition=None):
+    connection = pymysql.connect(
+        host=host, user=user, passwd=password, database=database)
     with connection:
         cur = connection.cursor()
         cur.execute(
@@ -34,6 +37,8 @@ def select(table, columns, condition=None):
 
 
 def execute(query):
+    connection = pymysql.connect(
+        host=host, user=user, passwd=password, database=database)
     with connection:
         cur = connection.cursor()
         cur.execute(query)
@@ -41,6 +46,8 @@ def execute(query):
 
 
 def insert_anthropometric(values):
+    connection = pymysql.connect(
+        host=host, user=user, passwd=password, database=database)
     with connection:
         cur = connection.cursor()
         cur.execute(
@@ -49,6 +56,8 @@ def insert_anthropometric(values):
 
 
 def insert_clinical(values):
+    connection = pymysql.connect(
+        host=host, user=user, passwd=password, database=database)
     with connection:
         cur = connection.cursor()
         cur.execute(
@@ -57,29 +66,41 @@ def insert_clinical(values):
 
 
 def insert_dietary(values):
+    connection = pymysql.connect(
+        host=host, user=user, passwd=password, database=database)
     with connection:
         cur = connection.cursor()
         cur.execute(
             f"INSERT INTO DIETARY VALUES({values})")
         connection.commit()
 
+
 def insert_metabolic(values):
+    connection = pymysql.connect(
+        host=host, user=user, passwd=password, database=database)
     with connection:
         cur = connection.cursor()
         cur.execute(
             f"INSERT INTO METABOLIC VALUES({values})")
         connection.commit()
 
+
 def insert_patient(values):
+    connection = pymysql.connect(
+        host=host, user=user, passwd=password, database=database)
     with connection:
         cur = connection.cursor()
         cur.execute(
             f"INSERT INTO PATIENT VALUES({values})")
         connection.commit()
 
+
 def insert_stool_sample(values):
+    connection = pymysql.connect(
+        host=host, user=user, passwd=password, database=database)
     with connection:
         cur = connection.cursor()
+        # print(f"INSERT INTO `STOOL_SAMPLE_ANALYSIS` VALUES({values})")
         cur.execute(
-            f"INSERT INTO STOOL_SAMPLE_ANALYSIS VALUES({values})")
+            f"INSERT INTO `STOOL_SAMPLE_ANALYSIS` VALUES({values})")
         connection.commit()
