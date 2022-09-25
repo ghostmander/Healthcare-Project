@@ -613,6 +613,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_5">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_glucose">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label">
                            <property name="minimumSize">
@@ -670,6 +677,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_11">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_bun">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_8">
                            <property name="minimumSize">
@@ -727,6 +741,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_10">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_creatinine">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_7">
                            <property name="minimumSize">
@@ -784,6 +805,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_6">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_bunc">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_3">
                            <property name="minimumSize">
@@ -841,6 +869,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_7">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_4">
                            <property name="minimumSize">
@@ -898,6 +933,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_8">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_protein">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_5">
                            <property name="minimumSize">
@@ -955,6 +997,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_12">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_alp">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_9">
                            <property name="minimumSize">
@@ -1062,6 +1111,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_15">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_aat">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_12">
                            <property name="minimumSize">
@@ -1119,6 +1175,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_14">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_rbc">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_11">
                            <property name="minimumSize">
@@ -1176,6 +1239,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_20">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_hb">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_17">
                            <property name="minimumSize">
@@ -1233,6 +1303,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_13">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_hematocrit">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_10">
                            <property name="minimumSize">
@@ -1290,6 +1367,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_19">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_mcv">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_16">
                            <property name="minimumSize">
@@ -1347,6 +1431,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_17">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_mch">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_14">
                            <property name="minimumSize">
@@ -1404,6 +1495,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_16">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_pc">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_13">
                            <property name="minimumSize">
@@ -1461,6 +1559,13 @@ border-radius:30px;</string>
                          <enum>QFrame::Raised</enum>
                         </property>
                         <layout class="QHBoxLayout" name="horizontalLayout_18">
+                         <item>
+                          <widget class="QCheckBox" name="checkBox_wbcc">
+                           <property name="text">
+                            <string>CheckBox</string>
+                           </property>
+                          </widget>
+                         </item>
                          <item alignment="Qt::AlignRight">
                           <widget class="QLabel" name="label_15">
                            <property name="minimumSize">
