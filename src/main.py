@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QLineEdit, QPushButton, QMessageBox
-from PyQt5 import uic, QtCore
+from PyQt5.QtWidgets import QMainWindow, QApplication, QStackedWidget, QLineEdit, QPushButton, QMessageBox, QCheckBox
+from PyQt5 import uic, QtCore, QtGui
 from PyQt5.QtGui import QDoubleValidator, QIntValidator, QRegExpValidator
 import sys
 from aws.connection_utils import *
@@ -18,47 +18,64 @@ class AnthropometryPage(QMainWindow):
                 "LineEdit": self.findChild(QLineEdit, "lineEdit"),
                 "Placeholder": "Length (cm)",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_length"),
             },
             "Height": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_4"),
                 "Placeholder": "Height (cm)",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_height"),
             },
             "Weight": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_7"),
                 "Placeholder": "Weight (kg)",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_weight"),
             },
             "Wt-Ht": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_3"),
                 "Placeholder": "Weight for Height",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_wfh"),
             },
             "BMI": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_2"),
                 "Placeholder": "BMI",
                 "Validator": QDoubleValidator(0.0, 99.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_bmi"),
             },
             "Age": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_5"),
                 "Placeholder": "Age (years)",
                 "Validator": QRegExpValidator(QtCore.QRegExp("[1-9]\d?")),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_age"),
             },
             "BMI-ZScore": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_8"),
                 "Placeholder": "BMI for age Z-Score",
                 "Validator": QDoubleValidator(0.0, 3000.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_bmifazs"),
             },
             "MUAC": {
                 "LineEdit": self.findChild(QLineEdit, "lineEdit_6"),
                 "Placeholder": "MUAC (cm)",
                 "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_muac"),
             }
         }
 
         for k, v in inputs.items():
             v["LineEdit"].setValidator(v["Validator"])
             v["LineEdit"].setPlaceholderText(v["Placeholder"])
+            v["Checkbox"].setChecked(True)
+            v["Checkbox"].setText('')
+            v["Checkbox"].toggled.connect(v["LineEdit"].setEnabled)
+            v["Checkbox"].setStyleSheet('''
+                                        QCheckBox::indicator { width: 18px; height: 18px; }
+                                        QCheckBox::indicator:checked { image: url(ui/Media/Radio_checked.png); }
+                                        QCheckBox::indicator:unchecked { image: url(ui/Media/Radio_unchecked.png); }''')
+            v["LineEdit"].setStyleSheet(
+                "QLineEdit { background-color: rgb(255, 255, 255); } QLineEdit:disabled { background-color: rgb(200, 200, 200); }")
 
         self.inputs = inputs
         self.biochemicalButton = self.findChild(QPushButton, "pushButton_7")
@@ -111,6 +128,9 @@ class AnthropometryPage(QMainWindow):
             msg.setIcon(QMessageBox.Information)
             msg.exec_()
 
+    def checkbox_handler(self, checkbox, linedit, name="Test"):
+        print(f"Clicked {name}")
+        linedit.setEnabled(checkbox.isChecked())
 
 # =================================================================================================
 #                               BIOCHEMICAL ASSESSMENT
@@ -126,77 +146,92 @@ class BiochemicalPage(QMainWindow):
             "Glucose": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit"),
                 "PlaceHolder": "Glucose",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_glucose"),
             },
             "BUN": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_7"),
                 "PlaceHolder": "BUN",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_bun"),
             },
             "Creatinine": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_6"),
                 "PlaceHolder": "Creatinine",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_creatinine"),
             },
             "BUN/Creatinine": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_2"),
                 "PlaceHolder": "BUN/Creatinine",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_bunc"),
             },
             "Calcium": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_3"),
                 "PlaceHolder": "Calcium",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox"),
             },
             "Protein": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_4"),
                 "PlaceHolder": "Protein",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_protein"),
             },
             "ALP": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_8"),
                 "PlaceHolder": "ALP",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_alp"),
             },
             "ALT": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_11"),
                 "PlaceHolder": "ALT",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_aat"),
             },
             "RBC_Count": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_10"),
                 "PlaceHolder": "RBC_Count",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_rbc"),
             },
             "Hemaglobin": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_16"),
                 "PlaceHolder": "Hemaglobin",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_hb"),
             },
             "Hematrocrit": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_9"),
                 "PlaceHolder": "Hematrocrit",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_hematocrit"),
             },
             "MCV": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_15"),
                 "PlaceHolder": "MCV",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_mcv"),
             },
             "MCH": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_13"),
                 "PlaceHolder": "MCH",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_mch"),
             },
             "Platelets": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_12"),
                 "PlaceHolder": "Platelets",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_pc"),
             },
             "WBC_Count": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_14"),
                 "PlaceHolder": "WBC_Count",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_wbcc"),
             },
         }
         self.stoolInputs = {
@@ -209,6 +244,16 @@ class BiochemicalPage(QMainWindow):
         for k, v in inputfields.items():
             v["lineEdit"].setValidator(v["Validator"])
             v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
+            v["Checkbox"].setChecked(True)
+            v["Checkbox"].setText('')
+            v["Checkbox"].toggled.connect(v["lineEdit"].setEnabled)
+            v["Checkbox"].setStyleSheet('''
+                                        QCheckBox::indicator { width: 18px; height: 18px; }
+                                        QCheckBox::indicator:checked { image: url(ui/Media/Radio_checked.png); }
+                                        QCheckBox::indicator:unchecked { image: url(ui/Media/Radio_unchecked.png); }''')
+            v["lineEdit"].setStyleSheet(
+                "QLineEdit { background-color: rgb(255, 255, 255); } QLineEdit:disabled { background-color: rgb(200, 200, 200); }")
+
         self.stoolInputs["Helminth"]["lineEdit"].setValidator(
             self.stoolInputs["Helminth"]["Validator"])
         self.stoolInputs["Helminth"]["lineEdit"].setPlaceholderText(
@@ -282,32 +327,46 @@ class ClinicalPage(QMainWindow):
             "BLE": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit"),
                 "PlaceHolder": "Bilateral Pitting Edema",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_bpe"),
             },
             "Bitot": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_4"),
                 "PlaceHolder": "Bitot Spot",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_bs"),
             },
             "Emaciation": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_2"),
                 "PlaceHolder": "Emaciation",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_e"),
             },
             "HairLoss": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_5"),
                 "PlaceHolder": "Hair Loss",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_hl"),
             },
             "Changes_Hairloss": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_3"),
                 "PlaceHolder": "Changes in Hair Loss",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_cihc"),
             },
         }
         for k, v in inputfields.items():
             v["lineEdit"].setValidator(v["Validator"])
             v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
+            v["Checkbox"].setChecked(True)
+            v["Checkbox"].setText('')
+            v["Checkbox"].toggled.connect(v["lineEdit"].setEnabled)
+            v["Checkbox"].setStyleSheet('''
+                                        QCheckBox::indicator { width: 18px; height: 18px; }
+                                        QCheckBox::indicator:checked { image: url(ui/Media/Radio_checked.png); }
+                                        QCheckBox::indicator:unchecked { image: url(ui/Media/Radio_unchecked.png); }''')
+            v["lineEdit"].setStyleSheet(
+                "QLineEdit { background-color: rgb(255, 255, 255); } QLineEdit:disabled { background-color: rgb(200, 200, 200); }")
 
         self.inputs = inputfields
         self.anthropometryButton = self.findChild(QPushButton, "pushButton_6")
@@ -372,27 +431,41 @@ class DietaryPage(QMainWindow):
             "DDS": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit"),
                 "PlaceHolder": "Dietary Diversity Score",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_dds"),
+
             },
             "24hR": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_4"),
                 "PlaceHolder": "24 Hour Recall",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_24hr"),
             },
             "FFQ": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_2"),
                 "PlaceHolder": "Food Frequency Questionnaire",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_ffq"),
             },
             "FGQ": {
                 "lineEdit": self.findChild(QLineEdit, "lineEdit_3"),
                 "PlaceHolder": "Food Group Questionnaire",
-                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation)
+                "Validator": QDoubleValidator(0.0, 300.0, 2, notation=QDoubleValidator.StandardNotation),
+                "Checkbox": self.findChild(QCheckBox, "checkBox_fgq"),
             },
         }
         for k, v in inputfields.items():
             v["lineEdit"].setValidator(v["Validator"])
             v["lineEdit"].setPlaceholderText(v["PlaceHolder"])
+            v["Checkbox"].setChecked(True)
+            v["Checkbox"].setText('')
+            v["Checkbox"].toggled.connect(v["lineEdit"].setEnabled)
+            v["Checkbox"].setStyleSheet('''
+                                        QCheckBox::indicator { width: 18px; height: 18px; }
+                                        QCheckBox::indicator:checked { image: url(ui/Media/Radio_checked.png); }
+                                        QCheckBox::indicator:unchecked { image: url(ui/Media/Radio_unchecked.png); }''')
+            v["lineEdit"].setStyleSheet(
+                "QLineEdit { background-color: rgb(255, 255, 255); } QLineEdit:disabled { background-color: rgb(200, 200, 200); }")
 
         self.inputs = inputfields
         self.anthropometryButton = self.findChild(QPushButton, "pushButton_6")
